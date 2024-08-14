@@ -1,7 +1,7 @@
 
 # Veggies-Invaders-3D
 
-![Veggies-Invaders-3D](https://github.com/FreecssY/Veggies-Invaders-3D/tree/master/src/medias/images/menu/Logo-acnh-sp.png)
+![Veggies-Invaders-3D](https://github.com/FreecssY/Veggies-Invaders-3D/blob/master/src/medias/images/menu/Logo-acnh-sp.png)
 
 ## Overview
 
@@ -19,10 +19,10 @@ The game is developed using [Three.js](https://threejs.org/), a powerful JavaScr
 ## Screenshots
 
 ### Main Menu
-![Main Menu](https://github.com/FreecssY/Veggies-Invaders-3D/tree/master/src/medias/images/index.png)
+![Main Menu](https://github.com/FreecssY/Veggies-Invaders-3D/blob/master/src/medias/images/index.png)
 
 ### In-Game
-![In-Game](https://github.com/FreecssY/Veggies-Invaders-3D/tree/master/src/medias/images/camera1.png)
+![In-Game](https://github.com/FreecssY/Veggies-Invaders-3D/blob/master/src/medias/images/camera1.png)
 
 ## Gameplay
 
