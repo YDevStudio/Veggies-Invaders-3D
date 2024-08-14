@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body{
+    overflow-x: hidden;
+    background: #fff;
+    min-height: 100vh;
+}
+
+#header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+#header .logo{
+    color: #24521b;
+    font-weight: 700;
+    font-size: 2em;
+    text-decoration: none;
+}
+
+#header ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header ul li{
+    list-style: none;
+    margin-left: 20px;
+}
+
+#header ul li a{
+    text-decoration: none;
+    padding: 6px 15px;
+    color: #24521b;
+    border-radius: 20px;
+}
+
+#header ul li a:hover,
+#header ul li a.active{
+    background: #24521b;
+    color: #fff;
+}
+
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, #37bd0f, transparent);
+    z-index: 10;
+}
+
+section #bird1, section #bird2, section #forest, section #rocks, section #water{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+section #text{
+    position: absolute;
+    width: 30%;
+    transform: translateY(-50%);
+}
+
+
+#btn{
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 30px;
+    background: #fff;
+    color: #24521b;
+    font-size: 1.2em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    border-radius: 40px;
+    transform: translateY(100px);
+}
+
+.sec{
+    position: relative;
+    padding: 100px;
+    background: #24521b;
+}
+
+.sec h2{
+    color: #fff;
+    margin-bottom: 10px;
+
+}
+
+.sec p{
+    font-size: 1em;
+    color: #fff;
+    width: 100%;
+}
+
+#link-3d{
+    color: pink;
+}
+
+#link-3d:visited{
+    color: pink;
+}
+
+
+#img-jeu1{
+    width: 80%;
+    margin-left: 60px;
+    border-radius: 20px;
+    border: 5px solid transparent;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+#img-jeu2{
+    width: 80%;
+    border-radius: 20px;
+    border: 5px solid transparent;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+#img-tree{
+    width: 50%;
+    margin-left: 60px;
+    border-radius: 20px;
+    border: 5px solid transparent;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+
+#img-jeu3{
+    width: 80%;
+    border-radius: 20px;
+    border: 5px solid transparent;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin-left: 60px;
+    margin-top: 70px;
+}
+
+#img-jeu4{
+    width: 80%;
+    border-radius: 20px;
+    border: 5px solid transparent;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin-top: 90px;
+}
+
+#img-jeu5{
+    width: 80%;
+    border-radius: 20px;
+    border: 5px solid transparent;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin-left: 60px;
+    margin-top: 70px;
+}
+
+#img-jeu6{
+    width: 80%;
+    border-radius: 20px;
+    border: 5px solid transparent;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin-left: 60px;
+    margin-top: 70px;
+}
+
+
+#img-jeu7{
+    width: 10%;
+    border-radius: 20px;
+    border: 5px solid transparent;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin-left: 60px;
+    margin-top: 70px;
+}

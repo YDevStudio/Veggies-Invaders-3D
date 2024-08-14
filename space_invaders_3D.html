@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Animal Crossing - spaceinvaders</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://kit-pro.fontawesome.com/releases/v5.15.1/css/pro.min.css" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="src/css/style.css" />
+  <script type="application/javascript" src="src/lib/threex.keyboardstate.js"></script>
+  <script type="importmap">
+    {
+        "imports" : {
+            "three" : "https://unpkg.com/three@0.151.3/build/three.module.js"
+        }
+    }
+</script>
+  <script type="module" src="src/js/main.js"></script>
+
+</head>
+
+<body>
+  
+  <!-- MENU PRINCIPAL-->
+  <div id="menu">
+    <div id="title-menu">
+      <img src="src/medias/images/menu/Logo-acnh-sp.png" alt="logo">
+    </div>
+    <div id="music-menu">
+      <i class="fas fa-cog" id="option"></i>
+    </div>
+    <br>
+    <h1 style="justify-content: center; text-align: center; font-family: Fink Heavy; margin-top: -5px; color: white;">Points :</h1>
+    <div id="points">
+      <p><img src="./src/medias/images/menu/10points.png" alt="" style="width: 90px;"> = 10 points</p>
+      <p><img src="./src/medias/images/menu/20points.png" alt="" style="width: 90px;"> = 20 points</p>
+      <p><img src="./src/medias/images/menu/30points.png" alt="" style="width: 90px;"> = 30 points</p>
+      <p><img src="./src/medias/images/menu/40points.png" alt="" style="width: 90px;"> = 40 points</p>
+      <p><img src="./src/medias/images/menu/50points.png" alt="" style="width: 90px;"> = 50 points</p>
+    </div>
+    <div id="auteur">
+      <h2><br>MHAND Youssef M1 Technologie de l'Internet</h2>
+    </div>
+    <div id="play-game">
+      <button id="button-play">Jouer</button>
+    </div>
+    
+    <div id="menu-option">
+      <h2>Options</h2>
+      <i class="fal fa-times" id="close-option"></i>
+      <div id="choix-decor">
+        <ul>
+          <li>
+            <label class="option_item">
+              <i class="fas fa-volume" id="volume-on"></i>
+            </label>
+          </li>
+          <li>
+            <label class="option_item">
+              <i class="fas fa-music" id="music-on"></i>
+            </label>
+          </li>
+          
+        </ul>
+      </div>
+      <div id="volume-audio">
+        <p>Volume: </p>
+        <i class="fa fa-volume-down"></i>
+        <input type="range" min="0" max="100" value="30" step="10" id="option-sound" class="slider">
+        <i class="fa fa-volume-up"></i>
+      </div>
+      <div id="volume-alien">
+        <p>Volume son alien: </p>
+        <i class="fa fa-volume-down" id="volume-dw-alien"></i>
+        <input type="range" min="0" max="100" value="30" step="10" id="option-sound-alien" class="slider-alien">
+        <i class="fa fa-volume-up" id="volume-up-alien"></i>
+      </div>
+      <div id="volume-lives">
+        <p>Volume son joueur: </p>
+        <i class="fa fa-volume-down" id="volume-dw-lives"></i>
+        <input type="range" min="0" max="100" value="30" step="10" id="option-sound-lives" class="slider-lives">
+        <i class="fa fa-volume-up" id="volume-up-lives"></i>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- RENDU 3D THREE JS-->
+  <div id="MainApp">
+    <div id="trans">
+      <div id="title-trans">
+      </div>
+    </div>
+    <div id="trans-gameover">
+      <div id="title-trans-gameover">
+      </div>
+    </div>
+    <div id="game-element">
+      <p style="font-family: Fink Heavy; position: absolute; top: -10%; left: 5%;">Lives:</p>
+      <div id="lives">
+        <div id="life1">
+          <img src='../src/medias/images/heart.png'>
+        </div>
+        <div id="life2">
+          <img src='../src/medias/images/heart.png'>
+        </div>
+        <div id="life3">
+          <img src='../src/medias/images/heart.png'>
+        </div>
+      </div>
+      <div id="invincible"></div>
+      <div id="postpro"></div>
+      <i class="fas fa-volume" id="volume-on-game"></i>
+      <i class="fas fa-music" id="music-on-game"></i>
+      
+    </div>
+    
+    <div id="score-level">
+      <div id="score"></div>
+      <div id="level"></div>
+      <div id="best-score"></div>
+    </div>
+    
+    <div id="help-commande">
+      <p style="position: absolute; top: -10%; left: 5%; font-size: 15px;">h: help &nbsp;| &nbsp; k: kill all &nbsp;| &nbsp; i: invincible &nbsp;| &nbsp; p: post-processing &nbsp;| &nbsp;echap: pause</p>
+    </div>
+
+    <div id="camera">
+      <p style="position: absolute; top: -10%; left: 5%;">0: camera1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1: camera2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2: camera3</p>
+    </div>
+  
+    <div id="pause">
+      <div style="margin-top: 20px;">Pause</div>
+      <div id="button-continuer">
+        <button id="continuer">Continuer</button>
+      </div>
+      <div id="button-recom">
+        <button id="recom">Recommencer</button>
+      </div>
+      <div id="button-quit">
+        <button id="quit">Quitter</button>
+      </div>
+      <div id="recom-alert">
+        <p>Êtes-vous sûr de vouloir recommencer ?</p>
+        <button id="recom-non">Non</button>
+        <button id="recom-oui">Oui</button>
+      </div>
+    </div>
+
+    <div class="alert hide">
+      <span class="fas fa-exclamation-circle"></span>
+      <span class="msg"></span>
+    </div>
+    
+  </div>
+</body>
+
+</html>

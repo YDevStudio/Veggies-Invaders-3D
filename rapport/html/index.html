@@ -1,0 +1,372 @@
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <header id="header">
+        <a href="#" class="logo">MHAND Youssef</a>
+        <ul>
+            <li><a href="#" class="active">M1 TECHNOLOGIE DE L'INTERNET</a></li>
+
+        </ul>
+    </header>
+    <section>
+        <img src="../images/pageprincipale/Logo-acnh-sp.png" alt="logo" id="text">
+        <a href="#text-section1" id="btn">Explorez le rapport</a>
+        <img src="../images/pageprincipale/rocks.png" alt="" id="rocks">
+        <img src="../images/pageprincipale/water.png" alt="" id="water">
+    </section>
+    <div class="sec">
+        <div id="text-section1">
+            <br><br><br><br><br>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="font-size: 30px; float: left;">
+                            <h2>Déroulement du jeu</h2>
+                        </th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td style="width: 50%;">
+                        <p>Le but du jeu consiste à éliminer des légumes ennemis. Ces ennemis se déplacent horizontalement tout en se rapprochant du
+                            joueur, lequel dispose d'une balle frite pour les éliminer. À chaque légume touché, le joueur
+                            gagne des points.</p>
+                        <p>Cependant, les légumes peuvent également tirer des balles sous différentes formes. Si le joueur se fait toucher, il
+                            perd une vie. La partie propose un nombre infini de niveaux, qui se poursuivent tant que les
+                            trois vies du joueur n'ont pas été perdues.</p>
+                        <p>À la fin de la partie, le joueur obtient un score final, affiché avec la mention "Game Over".
+                        </p>
+                    </td>
+                    <td>
+                        <img src="../images/pageprincipale/jeu1.png" alt="jeu1" id="img-jeu1">
+                    </td>
+                </tr>
+            </table>
+            <br><br><br><br><br>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="font-size: 30px; text-align: right;" colspan="2">
+                            <h2>Technologie logicielle</h2>
+                        </th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td style="width: 50%;">
+                        <br><br>
+                        <p>Le jeu a été développé en utilisant la bibliothèque Three.js pour la construction en 3D.</p>
+                        <p>Nous avons utilisé des librairies telles que GLTFLoader pour générer des modèles 3D au format
+                            gltf.</p>
+                        <p>Pour afficher les performances graphiques, la bibliothèque Stats.js a été utilisée.</p>
+                        <p>Threex.keyboardstate.js a été utilisée pour gérer les touches d'action (déplacements et tir
+                            des balles) pendant la partie, en récupérant l'état du clavier à tout moment.</p>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="font-size: 30px; text-align: left;" colspan="2"><h2>Architecture logicielle</h2></th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td style="width: 50%;">
+                        <p>L'arborescence du projet est la suivante: </p>
+                        <br/>
+                        <img src="../images/pageprincipale/tree.png" alt="jeu1" id="img-tree">
+                    </td>
+                </tr>
+            </table>
+            <br><br><br><br><br>
+            <br><br><br><br><br>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="font-size: 30px; text-align: right;" colspan="2">
+                            <h2>Graphisme</h2>
+                        </th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>
+                        <img src="../images/pageprincipale/jeu2.png" alt="jeu1" id="img-jeu2">
+                    </td>
+                    <td style="width: 50%;">
+                        <br><br>
+                        <p>le décord a été réalisé pour ce jeu représentant une île.</p>
+<p>Les caractères, et tous autre objets ont été modélisés en 3D et trouvés sur sketchfab.com (<a href="https://sketchfab.com/feed" id="link-3d">site</a>). La balle du joueur est représenté par une "Frite", et les boucliers sont représentés par des verres.</p>
+<p>La scène comprend 30 ennemis, représentants des légumes.</p>
+<p>La bibliothèque Three.js a été utilisée pour la construction en 3D du jeu. Nous avons utilisé différentes librairies, telles que GLTFLoader qui permet de générer des modèles 3D au format gltf, et Stats.js pour afficher le graphique de performances.</p>
+<p>La bibliothèque threex.keyboardstate.js a été utilisée pour récupérer l'état du clavier à n'importe quel instant, permettant ainsi le contrôle des actions du joueur (déplacements et tir du missile) pendant la partie.</p>
+<p>L'effet de post-processing "glitch" a été inclus dans le jeu. Lorsque le joueur se fait toucher par un alien, cet effet est activé pendant 1 seconde. Le joueur peut le désactiver à tout moment en appuyant sur la touche "p".</p>
+                    </td>
+                </tr>
+            </table>
+            <br><br><br><br><br>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="font-size: 30px; text-align: left;" colspan="2">
+                            <h2>Dialogue avec l'utilisateur</h2>
+                        </th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td style="width: 50%;">
+                        <br><br>
+                        <p>Au moment du passage à un niveau supérieur, une bannière s'affiche pendant 3 secondes pour indiquer le niveau atteint.</p>
+                        <p>Le joueur peut afficher ou masquer les touches utilisables pendant la partie en appuyant sur la touche "h".</p>
+                    </td>
+                    <td>
+                        <img src="../images/pageprincipale/level.png" alt="jeu1" id="img-jeu1">
+                    </td>
+                </tr>
+            </table>
+            <br><br><br><br><br>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="font-size: 30px; text-align: right;" colspan="2">
+                            <h2>Point de vue caméra</h2>
+                        </th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>
+                        <img src="../images/pageprincipale/level.png" alt="jeu1" id="img-jeu2">
+                    </td>
+                    <td style="width: 50%;">
+                        <br><br>
+                        <p>Le jeu propose trois points de vue différents :</p>
+<p>- Le premier point de vue est fixe par rapport au plateau. Pour l'obtenir, il suffit d'appuyer sur la touche "0".</p>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;">
+                        <br><br>
+                        <p>La seconde vue est attachée au personnage du joueur. Elle permet de suivre les mouvements du joueur à la première personne. Elle peut être activée en appuyant sur la touche '1'.</p>
+                    </td>
+                    <td>
+                        <img src="../images/pageprincipale/vue2.png" alt="jeu1" id="img-jeu3">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="../images/pageprincipale/vue3.png" alt="jeu1" id="img-jeu4">
+                    </td>
+                    <td style="width: 50%;">
+                        <br><br>
+                        <p>La troisième option de vue dans le jeu permet d'avoir une vue latérale du plateau. Pour y accéder, il suffit d'appuyer sur la touche '2'.</p>
+                    </td>
+                </tr>
+            </table>
+            <br><br><br><br><br>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="font-size: 30px; text-align: left;" colspan="2">
+                            <h2>Gestion des collisions</h2>
+                        </th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td style="width: 50%;">
+                        <br><br>
+                        <p>Quand un ennemi est touché, il disparait de la scène.</p>
+                        <p>Les verres possèdent 2 vies. ils disparaissent
+                            de la scène au 2ème impact.</p>
+                        <p>Le joueur possède lui 3 vies. A chaque impact, l'effet de post-processing est activé.
+                        </p>
+                    </td>
+                    <td>
+                        <img src="../images/pageprincipale/degat-aliens.png" alt="jeu1" id="img-jeu1">
+                    </td>
+                </tr>
+            </table>
+            <br><br><br><br><br>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="font-size: 30px; text-align: right;" colspan="2">
+                            <h2>Dynamique</h2>
+                        </th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td style="width: 50%; text-align: right;">
+                        <br><br>
+                        <p>Les ennemis se déplacent de gauche à droite (axe X) et avancent petit à petit vers le joueur
+                            (axe Z).</p>
+                        <p>Plus les ennemis s'approchent du joueur, plus la vitesse de leur missile augmente.</p>
+                        <p>Quand on pass au niveau supérieur, la vitesse des ennemis augmente ainsi que la vitesse de la
+                            balle tiré.</p>
+                    </td>
+                </tr>
+            </table>
+            <br><br><br><br><br>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="font-size: 30px; text-align: left;" colspan="2">
+                            <h2>Intelligence artificielle de l'adversaire</h2>
+                        </th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td style="width: 50%;">
+                        <br><br>
+                        <p>Le jeu comporte une intelligence artificielle qui permet de jouer en mode solo. Cette dernière permet également aux ennemis de tirer des missiles.</p>
+                        <p>L'IA génère un nombre aléatoire entre 1 et le nombre total d'ennemis présents sur la scène. L'ennemi désigné par ce nombre est celui qui tire le missile.</p>
+                        <p>À chaque fois que le joueur élimine un ennemi, il y a un nombre aléatoire de moins disponible pour l'IA.</p>
+                    </td>
+                </tr>
+            </table>
+            <br><br><br><br><br>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="font-size: 30px; text-align: right;" colspan="2">
+                            <h2>Musique et sons</h2>
+                        </th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>
+                        <img src="../images/pageprincipale/sound.png" alt="jeu1" id="img-jeu5">
+                        <img src="../images/pageprincipale/menu.png" alt="jeu1" id="img-jeu6">
+                    </td>
+                    <td style="width: 50%;">
+                        <br><br>
+                        <p>Une bande-sonore accompagne le lancement du jeu, tandis que des effets sonores sont associés aux interactions du joueur avec les ennemis. Chaque ennemi touché émet un son et disparaît, tandis que le joueur émet un son lorsqu'il est touché par un ennemi. La musique de fond et les effets sonores peuvent être désactivés à tout moment par le joueur, soit via le menu principal du jeu, soit pendant la partie.</p>
+                    </td>
+                </tr>
+            </table>
+            <br><br><br><br><br>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="font-size: 30px; text-align: left;" colspan="2">
+                            <h2>Triche</h2>
+                        </th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td style="width: 50%;">
+                        <br><br>
+                        <p>Le jeu propose plusieurs touches permettant de tricher :</p>
+<p> --> La touche 'i' active le mode invincible. Les ennemis ne s'approchent plus du joueur et leurs tirs ne lui font plus perdre de vie.</p>
+<p> --> La touche 'k' permet de tuer tous les ennemis en un seul coup et de passer au niveau suivant. Cependant, le joueur ne gagne aucun point en utilisant cette option.</p>
+                    </td>
+                </tr>
+            </table>
+            <br><br><br><br><br>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="font-size: 30px; text-align: right;" colspan="2">
+                            <h2>Les petits plus !</h2>
+                        </th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>
+                        <img src="../images/pageprincipale/option.png" alt="jeu1" id="img-jeu2">
+                    </td>
+                    <td style="width: 50%;">
+                        <br><br>
+                        <p>Dans le menu principal, on accède, grâce à la roue crantée, à un menu option qui permet de
+                             régler les volumes des différents sons.</p>
+                </tr>
+
+             
+                <tr>
+                    <td>
+                        <img src="../images/pageprincipale/pause.png" alt="jeu1" id="img-jeu4">
+                    </td>
+                    <td style="width: 50%;">
+                        <br><br>
+                        <p>Le jeu dispose d'un menu de pause accessible en appuyant sur la touche 'echap'.</p>
+<p>Ce menu offre la possibilité de poursuivre la partie en cours, de la recommencer ou encore de quitter le jeu.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;">
+                        <br><br>
+                        <p>De la fumée sort des ennemis lorsque que le joueur tire sur eux.</p>
+                        
+                    </td>
+                    <td>
+                        <img src="../images/pageprincipale/degat-aliens.png" alt="jeu1" id="img-jeu3">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="../images/pageprincipale/alien-bonus.png" alt="jeu1" id="img-jeu4">
+                    </td>
+                    <td style="width: 50%;">
+                        <br><br>
+                        <p>Un bonus sous forme d'une tomate apparaît à l'écran toutes les 10 secondes. Si le joueur parvient à toucher cette tomate, il devient invincible pendant 10 secondes.</p>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;">
+                        <br><br>
+                        <p>Un bandeau s'affiche sur l'écran lorsque le mode invincible est activé (soit par la touche 'i', soit par l'obtention du bonus) ainsi que l'effet de post-processing (touche 'p').</p>
+                        <p>Ce bandeau disparaît de l'écran après 5 secondes.
+                    </td>
+                    <td>
+                        <img src="../images/pageprincipale/invincible-bandeau.png" alt="jeu1" id="img-jeu3">
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <img src="../images/pageprincipale/meilleur-score.png" alt="jeu1" id="img-jeu4">
+                    </td>
+                    <td style="width: 50%;">
+                        <br><br>
+                        <p>A la fin de la partie, le score du joueur est enregistré pour lui permettre d'améliorer sa performance lors de la prochaine partie.</p>
+                    </td>
+                </tr>
+
+                
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let text = document.getElementById('text');
+        let bird1 = document.getElementById('bird1');
+        let bird2 = document.getElementById('bird2');
+        let btn = document.getElementById('btn');
+        let rocks = document.getElementById('rocks');
+        let forest = document.getElementById('forest');
+        let water = document.getElementById('water');
+        let header = document.getElementById('header');
+
+        window.addEventListener('scroll', function () {
+            let value = window.scrollY;
+            text.style.top = 35 + value * -0.1 + '%';
+            bird1.style.top = value * -1.5 + 'px';
+            bird1.style.left = value * 2 + 'px';
+            bird2.style.top = value * -1.5 + 'px';
+            bird2.style.left = value * -5 + 'px';
+            btn.style.marginTop = value * 1.5 + 'px';
+            rocks.style.top = value * -0.12 + 'px';
+            forest.style.top = value * 0.25 + 'px';
+            header.style.top = value * 0.5 + 'px';
+        })
+    </script>
+</body>
+
+</html>
