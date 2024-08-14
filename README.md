@@ -92,7 +92,7 @@ Contributions are welcome! If you have suggestions, find bugs, or want to add ne
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
 
 ## Acknowledgements
 
