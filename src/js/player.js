@@ -68,17 +68,14 @@ export default class Player{
         return glass;
     }
 
-    static async createbulletPlayer(){
-        let geometry = new THREE.BoxGeometry(0.3,0.3,0.6);
-        let material = new THREE.MeshLambertMaterial( {color: 'rgb(255, 255, 0)', transparent : true, opacity: 0.0} );
-        const loadedData4 = await GameConfig.chargerModeleGLTF('../src/medias/models/bullet.gltf');
-        loadedData4.scene.rotation.x = Math.PI / 2;
-        Player.bullet = new THREE.Mesh(geometry, material);
-        const geobullet = loadedData4.scene;
-        geobullet.scale.set(0.4,0.4,0.4);
-        Player.bullet.add(geobullet);
-        Player.bullet.visible = false;
-        return Player.bullet;
+    static async createbulletPlayer() {
+      const gltf = await GameConfig.chargerModeleGLTF('../src/medias/models/bullet.gltf');
+      const bullet = gltf.scene;
+      bullet.rotation.x = Math.PI / 2;
+      bullet.scale.set(0.4, 0.4, 0.4);
+      bullet.visible = false;
+      Player.bullet = bullet;
+      return bullet;
     }
 
     movebulletPlayer = () =>{

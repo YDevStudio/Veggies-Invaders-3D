@@ -1,7 +1,7 @@
 
 import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.module.js';
 
-import { OrbitControls } from 'https://threejs.org/examples/jsm/controls/OrbitControls.js';
+import { OrbitControls } from './OrbitControls.js';
 import Stats from 'https://threejs.org/examples/jsm/libs/stats.module.js';
 import { EffectComposer } from 'https://threejs.org/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from 'https://threejs.org/examples/jsm/postprocessing/RenderPass.js';
@@ -16,7 +16,7 @@ import GameConfig from './gameConfig.js';
 /*----------------------------Fichier principal du jeu----------------------------*/
 
 let container, w, h, camera, controls, renderer, stats, light;
-let loop = {}; 
+let loop = {};
 
 let aliens;
 let aliensBonus;
@@ -33,13 +33,20 @@ window.addEventListener('load', go);
 window.addEventListener('resize', resize);
 
 function go() {
-  menu.loadMenu(); 
-  Sound.volumeMusic(); 
-  Sound.volumeSound(); 
+  menu.loadMenu();
+  Sound.volumeMusic();
+  Sound.volumeSound();
   init();
   gameLoop();
 }
-
+function enableShadowsForModel(model) {
+  model.traverse((child) => {
+    if (child.isMesh) {
+      child.castShadow = true;
+      child.receiveShadow = true;
+    }
+  });
+}
 async function init() {
   container = document.querySelector('#MainApp');
   w = container.clientWidth;
@@ -66,31 +73,83 @@ async function init() {
   stats.domElement.style.bottom = '0px';
   document.body.appendChild(stats.domElement);
 
-  light = new THREE.AmbientLight(0xFFFFFF);
-  GameConfig.scene.add(light);
+  // light = new THREE.AmbientLight(0xFFFFFF);
+  // GameConfig.scene.add(light);
 
-  light = new THREE.SpotLight(0xffa95c, 2);
-  light.position.set(-50, 50, 50);
-  light.castShadow = true;
-  GameConfig.scene.add(light);
+  // const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+  // GameConfig.scene.add(ambientLight);
+
+  // // Simulated sunlight
+  // const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2);
+  // directionalLight.position.set(10, 20, 10);
+  // directionalLight.castShadow = true;
+
+  // directionalLight.shadow.mapSize.width = 1024;
+  // directionalLight.shadow.mapSize.height = 1024;
+  // directionalLight.shadow.camera.near = 0.5;
+  // directionalLight.shadow.camera.far = 50;
+
+  // GameConfig.scene.add(directionalLight);
+
+  // 🌤 Ambient light - warm but less intense
+  const ambientLight = new THREE.AmbientLight(0xfff2dc, 0.7);
+  GameConfig.scene.add(ambientLight);
+
+  // 🌞 Directional light - like sunlight from window
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+  directionalLight.position.set(30, 80, 40);
+  directionalLight.castShadow = true;
+  directionalLight.shadow.mapSize.width = 1024;
+  directionalLight.shadow.mapSize.height = 1024;
+  GameConfig.scene.add(directionalLight);
+
+  // 💡 Fill light - very soft, just to break shadows a bit
+  const fillLight = new THREE.PointLight(0xffe0bd, 0.2, 30);
+  fillLight.position.set(0, 5, -5);
+  GameConfig.scene.add(fillLight);
+
+  // renderer.shadowMap.enabled = true;
+  // renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+
+  // light = new THREE.SpotLight(0xffa95c, 2);
+  // light.position.set(-50, 50, 50);
+  // light.castShadow = true;
+  
+  // GameConfig.scene.add(light);
 
   await Player.createGlass().then((value) => {
     glasss = value;
+    // enableShadowsForModel(glasss);
     GameConfig.scene.add(value);
   })
 
   await Player.createbulletPlayer().then((value) => {
     bulletJoueur = value;
+    bulletJoueur.traverse((child) => {
+      if (child.isMesh) {
+        // Create a new material or modify existing one
+        child.material = new THREE.MeshStandardMaterial({
+          color: 0xff0000, // 🔴 Change to any color you like
+        });
+  
+        child.castShadow = true;
+        child.receiveShadow = true;
+      }
+    });
+    // enableShadowsForModel(bulletJoueur);
     GameConfig.scene.add(value);
   });
 
   await Alien.createAlien(6, 30).then((value) => {
     aliens = value;
+    enableShadowsForModel(aliens);
     GameConfig.scene.add(value);
   });
 
   await Alien.createAlienBonus().then((value) => {
     aliensBonus = value;
+    enableShadowsForModel(aliensBonus);
     GameConfig.scene.add(value);
   });
 
@@ -100,11 +159,33 @@ async function init() {
 
   let background = Decor.createBackground('../src/medias/images/skybox/ile/');
   GameConfig.scene.background = background;
-  
+
   (async () => {
     const gltfGround = await GameConfig.chargerModeleGLTF('../src/medias/models/ground.gltf');
     const ground = gltfGround.scene;
+    // enableShadowsForModel(ground);
+    ground.traverse((child) => {
+      if (child.isMesh) {
+        child.material = new THREE.MeshStandardMaterial({ 
+          map: child.material.map, 
+          color: child.material.color 
+        });
+        child.castShadow = true;
+        child.receiveShadow = true;
+      }
+
+    });
     
+    const plane = new THREE.Mesh(
+      new THREE.PlaneGeometry(200, 200),
+      new THREE.ShadowMaterial({ opacity: 0.2 })
+    );
+    plane.rotation.x = -Math.PI / 2;
+    plane.receiveShadow = true;
+    plane.position.y = -10;
+    GameConfig.scene.add(plane);
+
+
     ground.rotation.y = 3 * Math.PI / 2;
     ground.scale.set(10, 10, 10);
     ground.position.z = 10;
@@ -126,23 +207,23 @@ async function init() {
         child.position.z = 0.15;
       }
     };
-    
+
     ground.traverse((child) => {
       if (actions[child.name]) {
         actions[child.name](child);
       }
-    
+
     });
-    
+
     GameConfig.scene.add(ground);
   })();
 
   Decor.chooseBackground();
   menu.optionMenu();
-  triche(); 
-  pauseMenu(); 
-  helpKey(); 
-  postproKey(); 
+  triche();
+  pauseMenu();
+  helpKey();
+  postproKey();
 
   Sound.audioLoader();
   Sound.sliderVolumeAlien();
@@ -154,9 +235,9 @@ async function init() {
   GameConfig.scene.add(GameConfig.scoreGroup);
 
   const fps = 30;
-  const slow = 1; 
+  const slow = 1;
   loop.dt = 0,
-  loop.now = timestamp();
+    loop.now = timestamp();
   loop.last = loop.now;
   loop.fps = fps;
   loop.step = 1 / loop.fps;
@@ -168,11 +249,11 @@ function gameLoop() {
   loop.dt = loop.dt + Math.min(1, (loop.now - loop.last) / 1000);
   while (loop.dt > loop.slowStep) {
     loop.dt = loop.dt - loop.slowStep;
-    update(loop.step); 
-    GameConfig.composer.render(); 
+    update(loop.step);
+    GameConfig.composer.render();
   }
   loop.last = loop.now;
-  requestAnimationFrame(gameLoop); 
+  requestAnimationFrame(gameLoop);
 
   controls.update();
   stats.update();
@@ -233,7 +314,7 @@ function playerShoot() {
   joueur.playerTouchBunk();
   joueur.touchAliens(aliens);
   joueur.touchAlienBonus();
-  if (Alien.alienTab.length == 0) { 
+  if (Alien.alienTab.length == 0) {
     removeScene();
     Level.level++;
     document.getElementById('level').innerHTML = "Level: " + Level.level;
@@ -246,14 +327,14 @@ function aliensShoot() {
   Alien.movebulletAliens();
   Alien.aliensTouchBunk();
   Player.nbLives = Alien.aliensTouchSpaceship(GameConfig.spaceshipObject, Player.nbLives);
-  if (Player.nbLives == 0) { 
+  if (Player.nbLives == 0) {
     removeScene();
     Level.gameOver("Game Over !", camera, controls);
     Player.nbLives = 3;
     newGameLoose();
     Level.level = 1;
   }
-  else if (aliens.position.z == GameConfig.spaceshipObject.position.z) { 
+  else if (aliens.position.z == GameConfig.spaceshipObject.position.z) {
     removeScene();
     GameConfig.setPartieActive(true);
     Level.gameOver("Game Over !");
@@ -362,14 +443,14 @@ function pauseMenu() {
     if (e.key == "Escape") {
       if (Level.isActive() && !Menu.isActive()) {
         GameConfig.setPauseGame(!GameConfig.pause);
-        
+
         if (GameConfig.pause) {
           document.getElementById('pause').style.display = 'block';
           //Bouton pour continuer la partie
           document.getElementById('continuer').onclick = () => {
             document.getElementById('pause').style.display = 'none';
             GameConfig.setPauseGame(false);
-            
+
           };
           //Bouton pour recommencer la partie
           document.getElementById('recom').onclick = () => {
