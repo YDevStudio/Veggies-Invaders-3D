@@ -23,7 +23,7 @@ export default class Decor {
     }
 
     static async chooseBackground() {
-        let background = Decor.createBackground('../src/medias/images/skybox/ile/');
+        let background = Decor.createBackground('/medias/images/skybox/ile/');
         GameConfig.scene.background = background;
     };
 
