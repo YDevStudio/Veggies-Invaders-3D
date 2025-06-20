@@ -115,7 +115,7 @@ async function init() {
   // light = new THREE.SpotLight(0xffa95c, 2);
   // light.position.set(-50, 50, 50);
   // light.castShadow = true;
-  
+
   // GameConfig.scene.add(light);
 
   await Player.createGlass().then((value) => {
@@ -132,7 +132,7 @@ async function init() {
         child.material = new THREE.MeshStandardMaterial({
           color: 0xff0000, // 🔴 Change to any color you like
         });
-  
+
         child.castShadow = true;
         child.receiveShadow = true;
       }
@@ -157,25 +157,25 @@ async function init() {
     GameConfig.scene.add(value);
   });
 
-  let background = Decor.createBackground('../src/medias/images/skybox/ile/');
+  let background = Decor.createBackground('/medias/images/skybox/ile/');
   GameConfig.scene.background = background;
 
   (async () => {
-    const gltfGround = await GameConfig.chargerModeleGLTF('../src/medias/models/ground.gltf');
+    const gltfGround = await GameConfig.chargerModeleGLTF('/medias/models/ground.gltf');
     const ground = gltfGround.scene;
     // enableShadowsForModel(ground);
     ground.traverse((child) => {
       if (child.isMesh) {
-        child.material = new THREE.MeshStandardMaterial({ 
-          map: child.material.map, 
-          color: child.material.color 
+        child.material = new THREE.MeshStandardMaterial({
+          map: child.material.map,
+          color: child.material.color
         });
         child.castShadow = true;
         child.receiveShadow = true;
       }
 
     });
-    
+
     const plane = new THREE.Mesh(
       new THREE.PlaneGeometry(200, 200),
       new THREE.ShadowMaterial({ opacity: 0.2 })
